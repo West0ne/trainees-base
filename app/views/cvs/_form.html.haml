@@ -1,0 +1,7 @@
+= simple_form_for(@cv, html: {class: 'form-horizontal'}) do |f|
+  = f.input :position, label: "Position"
+  = f.input :city, label: "City"
+  = f.input :description, label: "Description"
+  = f.input :url, label: "link to Github account"
+  %br/
+  = f.button :submit
