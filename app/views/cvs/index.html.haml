@@ -1,1 +1,5 @@
-%h1 This index page
+- @cvs.each do |cv|
+  %h2= link_to cv.position, cv
+  %p= cv.city
+
+= link_to "New CV", new_cv_path

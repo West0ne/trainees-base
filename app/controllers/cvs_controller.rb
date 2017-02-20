@@ -1,6 +1,8 @@
 class CvsController < ApplicationController
   before_action :find_cv, only: [:show, :edit, :update, :destroy]
+
   def index
+    @cvs = Cv.all.order("created_at DESC")
   end
 
   def show
@@ -12,7 +14,7 @@ class CvsController < ApplicationController
   end
 
   def create
-    @cv = Cv.new(cv_params)
+    @cv = Cv.new(cvs_params)
     if @cv.save
       redirect_to @cv
     else
@@ -24,9 +26,16 @@ class CvsController < ApplicationController
   end
 
   def update
+    if @cv.update(cvs_params)
+      redirect_to @cv
+    else
+      render "Edit"
+    end
   end
 
   def destroy
+    @cv.destroy
+    redirect_to root_path
   end
 
   private

@@ -1,0 +1,7 @@
+%h1= @cv.position
+%p= @cv.city
+%p= @cv.description
+
+= link_to "Home", root_path
+= link_to "Edit", edit_cv_path(@cv)
+= link_to "Delete", cv_path(@cv), method: :delete, data: {confirm: "Are you sure?"}
