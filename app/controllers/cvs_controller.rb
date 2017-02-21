@@ -2,7 +2,12 @@ class CvsController < ApplicationController
   before_action :find_cv, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cvs = Cv.all.order("created_at DESC")
+    if params[:category].blank?
+      @cvs = Cv.all.order("created_at DESC")
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @cvs = Cv.where(category_id: @category_id).order("created_at DESC")
+    end
   end
 
   def show
@@ -10,7 +15,6 @@ class CvsController < ApplicationController
 
   def new
     @cv = Cv.new
-
   end
 
   def create
@@ -41,7 +45,7 @@ class CvsController < ApplicationController
   private
 
   def cvs_params
-    params.require(:cv).permit(:position, :city, :description, :url)
+    params.require(:cv).permit(:position, :city, :description, :url, :category_id)
   end
 
   def find_cv

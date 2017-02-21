@@ -1,0 +1,11 @@
+!!!
+%html
+%head
+  %title Ruby on Rails CV
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+%body
+  - Category.all.each do |category|
+    = link_to category.name, cvs_path(category: category.name) 
+  = yield
