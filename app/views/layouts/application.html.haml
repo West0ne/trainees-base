@@ -6,6 +6,13 @@
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
 %body
-  - Category.all.each do |category|
-    = link_to category.name, cvs_path(category: category.name) 
-  = yield
+  %nav.navbar.navbar-default
+    .container
+      .navbar-brand Trainees
+      %ul.nav.navbar-nav
+        %li= link_to "All CV", root_path
+        -Category.all.each do |category|
+          %li= link_to category.name, cvs_path(category: category.name)
+      = link_to "New CV", new_cv_path, class: "navbar-text navbar-right navbar-link"
+  .container
+    = yield

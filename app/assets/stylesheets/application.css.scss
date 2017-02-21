@@ -15,3 +15,67 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+ * {
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+  background: #939393;
+
+font-family: 'Cabin Sketch', cursive;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.navbar-default {
+	background-color: white;
+	border-radius: 0;
+	height: 80px;
+	padding: 15px 0;
+	border: none;
+}
+
+.navbar-brand {
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-size: 2em;
+	font-weight: 300;
+	color: #1D976C !important;
+}
+
+#cvs {
+	.cv {
+		padding: 1em 0;
+		border-bottom: 1px solid rgba(250,250,250, 0.5);
+		h2 {
+			font-size: 2.5em;
+			font-weight: 300;
+			margin-bottom: 0;
+			color: black;
+			a {
+				color: black;
+			}
+		}
+		p {
+			color: rgba(250,250,250, 0.5);
+		}
+	}
+}
+
+#links {
+	margin-top: 2em;
+}

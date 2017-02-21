@@ -1,4 +1,4 @@
-- @cvs.each do |cv|
-  %h2= link_to cv.position, cv
-
-= link_to "New CV", new_cv_path
+#cvs
+  - @cvs.each do |cv|
+    .cv
+      %h2= link_to cv.position, cv
