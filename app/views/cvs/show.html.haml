@@ -1,8 +1,12 @@
-%h1= @cv.position
-%p= @cv.city
-%p= @cv.description
-%p= @cv.url 
+#cvs
+  .cv
+    %h2= @cv.position
+    %p= @cv.city
+    %p= @cv.description
+    %p= @cv.url
+    %button.btn.btn-default= link_to "receive contacts", @cv.url
 
-= link_to "Home", root_path
-= link_to "Edit", edit_cv_path(@cv)
-= link_to "Delete", cv_path(@cv), method: :delete, data: {confirm: "Are you sure?"}
+#links
+  = link_to "Back", root_path, class: "btn-sm btn-default"
+  = link_to "Edit", edit_cv_path(@cv), class: "btn-sm btn-default"
+  = link_to "Delete", cv_path(@cv), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-sm btn-default"
